@@ -11,24 +11,16 @@ Build
 Build the docker image (see `docker-build(1)`):
 ```bash
 $ cd <path-to>/docker/ros-gui
-$ docker build -t ros:kinetic-desktop-full .
+$ docker build -t ros:gui .
 ```
 
-You may create an alias for convinience (in `.bashrc` or similar):
-```bash
-alias ros_gui="docker run --net=host --user $(id -u) --env DISPLAY=$DISPLAY -v '/tmp/.X11-unix:/tmp/.X11-unix:rw'"
-```
+Install [x11docker](https://github.com/mviereck/x11docker) to run GUI apps properly.
 
 
 Usage
 -----
 
-So you can later start a ROS GUI tool by:
 ```bash
-$ ros_gui --name rqt_graph ros:kinetic-desktop-full rqt_graph
+x11docker --hostnet ros:gui rqt_graph
 ```
-
-You can then (re-)start `rqt_graph` by:
-```bash
-$ docker start rqt_graph
-```
+Replace `rqt_graph` with the ROS GUI of your choice.
