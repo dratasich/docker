@@ -1,0 +1,24 @@
+<launch>
+  <arg name="port" default="/dev/ydlidar" />
+  <arg name="angle_min" default="-180" />
+  <arg name="angle_max" default="180" />
+
+  <node name="ydlidar_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" >
+    <param name="port"         type="string" value="$(arg port)"/>
+    <param name="baudrate"     type="int"    value="115200"/>
+    <param name="frame_id"     type="string" value="ydlidar"/>
+    <param name="low_exposure"  type="bool"   value="false"/>
+    <param name="resolution_fixed"    type="bool"   value="true"/>
+    <param name="auto_reconnect"    type="bool"   value="true"/>
+    <param name="reversion"    type="bool"   value="false"/>
+    <param name="angle_min"    type="double" value="$(arg angle_min)" />
+    <param name="angle_max"    type="double" value="$(arg angle_max)" />
+    <param name="range_min"    type="double" value="0.1" />
+    <param name="range_max"    type="double" value="16.0" />
+    <param name="ignore_array" type="string" value="" />
+    <param name="samp_rate"    type="int"    value="9"/>
+    <param name="frequency"    type="double" value="7"/>
+  </node>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_ydlidar"
+    args="0.2245 0.0 0.2 0.0 0.0 0.0 base_link ydlidar" />
+</launch>
