@@ -24,3 +24,5 @@ Usage
 x11docker --hostnet ros:gui rviz
 ```
 Replace `rviz` with the ROS GUI of your choice.
+
+Note, `--hostnet` enables the container to use the host's network (e.g., spy on it)!

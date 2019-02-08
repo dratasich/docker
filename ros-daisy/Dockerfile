@@ -2,7 +2,9 @@ FROM ros:kinetic
 
 SHELL ["/bin/bash", "-c"]
 
-# p2os to understand robot messages
+# dependencies of launch files for demos
+# - p2os to understand robot messages
+# - tf for frames (laser)
 # git to download custom ROS packages
 RUN apt-get update && apt-get install -y \
         ros-kinetic-p2os-msgs \
