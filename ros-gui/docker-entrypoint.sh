@@ -10,7 +10,7 @@ export ROS_MASTER_URI=http://nils:11311/
 echo "$ECHO_PREFIX" "set ROS master: " "$ROS_MASTER_URI"
 
 # ROS installation
-ROS=/opt/ros/kinetic/setup.bash
+ROS=/opt/ros/melodic/setup.bash
 source "$ROS"
 echo "$ECHO_PREFIX" "sourced ROS installation:" "$ROS"
 

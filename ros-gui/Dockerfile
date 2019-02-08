@@ -1,12 +1,12 @@
-FROM ros:kinetic
+FROM ros:melodic
 
 SHELL ["/bin/bash", "-c"]
 
 # ros desktop full for GUIs
 # p2os to understand robot messages
 RUN apt-get update && apt-get install -y \
-        ros-kinetic-desktop-full \
-        ros-kinetic-p2os-msgs \
+        ros-melodic-desktop-full \
+        ros-melodic-p2os-msgs \
         git
 
 # install custom ROS packages (to understand its messages)
@@ -17,7 +17,7 @@ RUN git clone https://github.com/tuw-cpsg/general-ros-modules.git
 
 # build custom ROS packages
 WORKDIR /catkin_ws
-RUN source /opt/ros/kinetic/setup.bash && catkin_make
+RUN source /opt/ros/melodic/setup.bash && catkin_make
 
 # initialize ROS (master uri, environments, etc.)
 COPY docker-entrypoint.sh /

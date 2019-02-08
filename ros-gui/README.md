@@ -21,6 +21,6 @@ Usage
 -----
 
 ```bash
-x11docker --hostnet ros:gui rqt_graph
+x11docker --hostnet ros:gui rviz
 ```
-Replace `rqt_graph` with the ROS GUI of your choice.
+Replace `rviz` with the ROS GUI of your choice.
