@@ -5,10 +5,13 @@ SHELL ["/bin/bash", "-c"]
 # dependencies of launch files for demos
 # - p2os to understand robot messages
 # - tf for frames (laser)
+# - gmapping and navigation for SLAM
 # git to download custom ROS packages
 RUN apt-get update && apt-get install -y \
         ros-kinetic-p2os-msgs \
         ros-kinetic-tf2-ros \
+        ros-kinetic-gmapping \
+        ros-kinetic-navigation \
         git
 
 # install custom ROS packages (to understand its messages)
